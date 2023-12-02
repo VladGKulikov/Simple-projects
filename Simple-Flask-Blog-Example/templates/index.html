@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Posts page
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>All posts</h1>
+
+    {% if posts | length > 0 %}
+      {% for el in posts %}
+        <div class="alert alert-primary">
+            <h2>{{ el.title }}</h2>
+            <p>{{ el.intro }}</p>
+            <p><b>Date: {{ el.date.date() }}</b></p>
+            <a href="/posts/{{ el.id }}" class="btn btn-success">Details, update, delete post</a>
+        </div>
+      {% endfor %}
+    {% else %}
+        <div class="alert alert-check">
+            <h2>No posts on the site yet - please add them through the "New post"</h2>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

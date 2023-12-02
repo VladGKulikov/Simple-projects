@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ post.title}}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>{{ post.title}}</h1>
+
+    <p>Intro:</p>
+    <div class="alert alert-success">
+        <p>{{ post.intro }}</p>
+    </div>
+        <p>Text:</p>
+    <div class="alert alert-primary">
+        <p>Text: {{ post.text }}</p>
+    </div>
+        <p><b>Date: {{ post.date.date() }} Time: {{ post.date.time() }}</b></p>
+        <a href="/posts/{{ post.id }}/del" class="btn btn-danger">Delete</a>
+        <a href="/posts/{{ post.id }}/update" class="btn btn-success">Update post</a>
+        <a href="/posts" class="btn btn-primary">Back to posts</a>
+
+</div>
+{% endblock %}
